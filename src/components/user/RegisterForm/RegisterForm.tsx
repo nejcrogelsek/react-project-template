@@ -1,5 +1,6 @@
 import { FC } from 'react'
-import { useRegisterFormik } from '../../../lib/hooks/formik/useRegisterFormik'
+import * as API from '../../../api/Api'
+import { useRegisterForm } from '../../../lib/hooks/react-hook-form/useRegisterForm'
 
 //Components
 import {
@@ -13,39 +14,28 @@ import {
 	Button
 } from 'reactstrap'
 
-import * as API from '../../../api/Api'
-
-export interface RegisterFields {
-	firstName: string
-	lastName: string
-	dateOfBirth: string
-	email: string
-	password: string
-}
-
 const RegisterForm: FC = () => {
-	const formik = useRegisterFormik({
-		onSubmit: async (values, formikHelpers) => {
-			try {
-				const res = await API.register({
-					first_name: values.firstName,
-					last_name: values.lastName,
-					date_of_birth: values.dateOfBirth,
-					email: values.email,
-					password: values.password
-				})
+	const { errors, handleSubmit, register, reset } = useRegisterForm()
 
-				console.log('res', res)
+	const onSubmit = handleSubmit(async (data) => {
+		try {
+			const res = await API.register({
+				first_name: data.firstName,
+				last_name: data.lastName,
+				date_of_birth: data.date_of_birth,
+				email: data.email,
+				password: data.password
+			})
 
-				formikHelpers.resetForm()
-			} catch (e) {
-				console.log(e)
-			}
-		}
+			console.log('res', res)
+
+			reset()
+		} catch (e) { console.log(e) }
 	})
+
 	return (
 		<div className='RegisterForm'>
-			<Form onSubmit={formik.handleSubmit}>
+			<Form onSubmit={onSubmit}>
 				<Row>
 					<Col xs='12' sm='6'>
 						<FormGroup className='form-group-custom'>
@@ -54,69 +44,57 @@ const RegisterForm: FC = () => {
 								type='text'
 								id='firstName'
 								className='form-control-custom'
-								onChange={formik.handleChange}
-								value={formik.values.firstName}
-								invalid={!!formik.errors.firstName && formik.touched.firstName}
+								{...register('firstName')}
 							/>
-							<FormFeedback>{formik.errors.firstName}</FormFeedback>
+							{errors.firstName && <FormFeedback style={{ color: '#ff0000' }}>{errors.firstName.message}</FormFeedback>}
 						</FormGroup>
 					</Col>
 					<Col xs='12' sm='6'>
 						<FormGroup className='form-group-custom'>
 							<Label for='lastName'>Last name</Label>
-							<Input
+							<input
 								type='text'
 								id='lastName'
-								onChange={formik.handleChange}
 								className='form-control-custom'
-								value={formik.values.lastName}
-								invalid={!!formik.errors.lastName && formik.touched.lastName}
+								{...register('lastName')}
 							/>
-							<FormFeedback>{formik.errors.lastName}</FormFeedback>
+							{errors.lastName && <FormFeedback style={{ color: '#ff0000' }}>{errors.lastName.message}</FormFeedback>}
 						</FormGroup>
 					</Col>
 					<Col xs='12' sm='12'>
 						<FormGroup className='form-group-custom'>
-							<Label for='dateOfBirth'>Date of Birth</Label>
-							<Input
+							<Label for='date_of_birth'>Date of Birth</Label>
+							<input
 								type='date'
-								id='dateOfBirth'
-								onChange={formik.handleChange}
+								id='date_of_birth'
 								className='form-control-custom'
-								value={formik.values.dateOfBirth}
-								invalid={
-									!!formik.errors.dateOfBirth && formik.touched.dateOfBirth
-								}
+								{...register('date_of_birth')}
 							/>
-							<FormFeedback>{formik.errors.dateOfBirth}</FormFeedback>
+							{errors.date_of_birth && <FormFeedback style={{ color: '#ff0000' }}>{errors.date_of_birth.message}</FormFeedback>}
 						</FormGroup>
 					</Col>
 					<Col xs='12' sm='12'>
 						<FormGroup className='form-group-custom'>
 							<Label for='email'>Email Address</Label>
-							<Input
+							<input
 								type='email'
 								id='email'
-								onChange={formik.handleChange}
 								className='form-control-custom'
-								value={formik.values.email}
-								invalid={!!formik.errors.email && formik.touched.email}
+								{...register('email')}
 							/>
-							<FormFeedback>{formik.errors.email}</FormFeedback>
+							{errors.email && <FormFeedback style={{ color: '#ff0000' }}>{errors.email.message}</FormFeedback>}
 						</FormGroup>
 					</Col>
 					<Col xs='12' sm='12'>
 						<FormGroup className='form-group-custom'>
 							<Label for='password'>Password</Label>
-							<Input
+							<input
 								type='password'
 								id='password'
-								onChange={formik.handleChange}
 								className='form-control-custom'
-								value={formik.values.password}
-								invalid={!!formik.errors.password && formik.touched.password}
+								{...register('password')}
 							/>
-							<FormFeedback>{formik.errors.password}</FormFeedback>
+							{errors.password && <FormFeedback style={{ color: '#ff0000' }}>{errors.password.message}</FormFeedback>}
 						</FormGroup>
 					</Col>
 					<Col xs='12'>
@@ -124,7 +102,6 @@ const RegisterForm: FC = () => {
 							<Button
 								color='secondary'
 								type='submit'
-								onClick={formik.submitForm}
 							>
 								Create Account
 							</Button>

@@ -1,62 +1,55 @@
 import { FC } from 'react'
-import { FormGroup, Label, Form, Button } from 'reactstrap'
-import { useLoginFormik } from '../../../lib/hooks/formik/useLoginFormik'
+import { FormGroup, Label, Form, Button, FormFeedback } from 'reactstrap'
+import { useLoginForm } from '../../../lib/hooks/react-hook-form/useLoginForm'
 import Input from '../../shared/Input/Input'
 
 import * as API from '../../../api/Api'
 
 const LoginForm: FC = () => {
+	const { errors, handleSubmit, register, reset } = useLoginForm()
 
-	const formik = useLoginFormik({
-		onSubmit: async (values, formikHelpers) => {
-			try {
-				const res = await API.login({
-					email: values.email,
-					password: values.password
-				})
+	const onSubmit = handleSubmit(async(data) => {
+		try {
+			const res = await API.login({
+				email: data.email,
+				password: data.password
+			})
 
-				console.log('res', res)
+			console.log('res', res)
 
-				formikHelpers.resetForm()
-			} catch (e) { 
-				console.log(e)
-			}
-		}
+			reset()
+		} catch (e) { console.log(e) }
 	})
 
 	return (
 		<div className='LoginForm'>
-			<Form inline onSubmit={formik.handleSubmit}>
+			<Form inline onSubmit={onSubmit}>
 				<FormGroup>
-					<Label for='exampleEmail' hidden>
+					<Label for='email' hidden>
 						Email
 					</Label>
-					<Input
+					<input
 						className='LoginForm-input'
 						type='email'
-						name='email'
-						id='exampleEmail'
+						id='email'
 						placeholder='Email'
-						value={formik.values.email}
-						onChange={formik.handleChange}
-						onBlur={formik.handleBlur}
+						{...register('email')}
 					/>
+					{errors.email && <FormFeedback style={{ color: '#ff0000' }}>{errors.email.message}</FormFeedback>}
 				</FormGroup>
 				<FormGroup>
-					<Label for='examplePassword' hidden>
+					<Label for='password' hidden>
 						Password
 					</Label>
-					<Input
+					<input
 						type='password'
-						name='password'
-						id='examplePassword'
+						id='password'
 						placeholder='Password'
-						value={formik.values.password}
-						onChange={formik.handleChange}
-						onBlur={formik.handleBlur}
+						{...register('password')}
 					/>
+					{errors.password && <FormFeedback style={{ color: '#ff0000' }}>{errors.password.message}</FormFeedback>}
 				</FormGroup>
-				<Button type='button' color='secondary'>
+				<Button type='submit' color='secondary'>
 					Login
 				</Button>
 			</Form>
