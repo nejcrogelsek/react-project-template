@@ -1,7 +1,6 @@
 import { FC } from 'react'
 import { FormGroup, Label, Form, Button, FormFeedback } from 'reactstrap'
 import { useLoginForm } from '../../../lib/hooks/react-hook-form/useLoginForm'
-import Input from '../../shared/Input/Input'
 
 import * as API from '../../../api/Api'
 

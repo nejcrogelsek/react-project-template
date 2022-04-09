@@ -8,7 +8,6 @@ import {
 	Col,
 	FormGroup,
 	Label,
-	Input,
 	Form,
 	FormFeedback,
 	Button
@@ -20,8 +19,8 @@ const RegisterForm: FC = () => {
 	const onSubmit = handleSubmit(async (data) => {
 		try {
 			const res = await API.register({
-				first_name: data.firstName,
-				last_name: data.lastName,
+				first_name: data.first_name,
+				last_name: data.last_name,
 				date_of_birth: data.date_of_birth,
 				email: data.email,
 				password: data.password
@@ -39,26 +38,26 @@ const RegisterForm: FC = () => {
 				<Row>
 					<Col xs='12' sm='6'>
 						<FormGroup className='form-group-custom'>
-							<Label for='firstName'>First name</Label>
-							<Input
+							<Label for='first_name'>First name</Label>
+							<input
 								type='text'
-								id='firstName'
+								id='first_name'
 								className='form-control-custom'
-								{...register('firstName')}
+								{...register('first_name')}
 							/>
-							{errors.firstName && <FormFeedback style={{ color: '#ff0000' }}>{errors.firstName.message}</FormFeedback>}
+							{errors.first_name && <FormFeedback style={{ color: '#ff0000' }}>{errors.first_name.message}</FormFeedback>}
 						</FormGroup>
 					</Col>
 					<Col xs='12' sm='6'>
 						<FormGroup className='form-group-custom'>
-							<Label for='lastName'>Last name</Label>
+							<Label for='last_name'>Last name</Label>
 							<input
 								type='text'
-								id='lastName'
+								id='last_name'
 								className='form-control-custom'
-								{...register('lastName')}
+								{...register('last_name')}
 							/>
-							{errors.lastName && <FormFeedback style={{ color: '#ff0000' }}>{errors.lastName.message}</FormFeedback>}
+							{errors.last_name && <FormFeedback style={{ color: '#ff0000' }}>{errors.last_name.message}</FormFeedback>}
 						</FormGroup>
 					</Col>
 					<Col xs='12' sm='12'>
