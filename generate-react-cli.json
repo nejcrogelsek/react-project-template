@@ -5,24 +5,22 @@
   "component": {
     "default": {
       "customTemplates": {
-        "component": "src/templates/Component/Component.tsx",
-        "style": "src/templates/Component/Component.scss"
+        "component": "src/templates/Component/Component.tsx"
       },
       "path": "src/components",
       "withLazy": false,
       "withStory": false,
-      "withStyle": true,
+      "withStyle": false,
       "withTest": false
     },
     "page": {
       "customTemplates": {
-        "component": "src/templates/Page/Page.tsx",
-        "style": "src/templates/Page/Page.scss"
+        "component": "src/templates/Page/Page.tsx"
       },
       "path": "src/pages",
       "withLazy": false,
       "withStory": false,
-      "withStyle": true,
+      "withStyle": false,
       "withTest": false
     }
   },
