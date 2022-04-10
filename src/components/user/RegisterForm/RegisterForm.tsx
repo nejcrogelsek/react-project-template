@@ -6,12 +6,10 @@ import { useRegisterForm } from '../../../lib/hooks/react-hook-form/useRegisterF
 import {
 	Row,
 	Col,
-	FormGroup,
-	Label,
-	Form,
-	FormFeedback,
-	Button
+	Form
 } from 'reactstrap'
+import FormGroup from '../../shared/FormGroup/FormGroup'
+import Button from '../../shared/Button/Button'
 
 const RegisterForm: FC = () => {
 	const { errors, handleSubmit, register, reset } = useRegisterForm()
@@ -37,74 +35,65 @@ const RegisterForm: FC = () => {
 			<Form onSubmit={onSubmit}>
 				<Row>
 					<Col xs='12' sm='6'>
-						<FormGroup className='form-group-custom'>
-							<Label for='first_name'>First name</Label>
-							<input
-								type='text'
-								id='first_name'
-								className='form-control-custom'
-								{...register('first_name')}
-							/>
-							{errors.first_name && <FormFeedback style={{ color: '#ff0000' }}>{errors.first_name.message}</FormFeedback>}
-						</FormGroup>
+						<FormGroup
+							type='text'
+							id='first_name'
+							placeholder='first_name'
+							classNameInput='form-control-custom'
+							register={register}
+							label='first_name'
+							error={errors.first_name}
+						/>
 					</Col>
 					<Col xs='12' sm='6'>
-						<FormGroup className='form-group-custom'>
-							<Label for='last_name'>Last name</Label>
-							<input
-								type='text'
-								id='last_name'
-								className='form-control-custom'
-								{...register('last_name')}
-							/>
-							{errors.last_name && <FormFeedback style={{ color: '#ff0000' }}>{errors.last_name.message}</FormFeedback>}
-						</FormGroup>
+						<FormGroup
+							type='text'
+							id='last_name'
+							placeholder='last_name'
+							classNameInput='form-control-custom'
+							register={register}
+							label='last_name'
+							error={errors.last_name}
+						/>
 					</Col>
 					<Col xs='12' sm='12'>
-						<FormGroup className='form-group-custom'>
-							<Label for='date_of_birth'>Date of Birth</Label>
-							<input
-								type='date'
-								id='date_of_birth'
-								className='form-control-custom'
-								{...register('date_of_birth')}
-							/>
-							{errors.date_of_birth && <FormFeedback style={{ color: '#ff0000' }}>{errors.date_of_birth.message}</FormFeedback>}
-						</FormGroup>
+						<FormGroup
+							type='date'
+							id='date_of_birth'
+							classNameInput='form-control-custom'
+							register={register}
+							label='Date of birth'
+							error={errors.date_of_birth}
+						/>
 					</Col>
 					<Col xs='12' sm='12'>
-						<FormGroup className='form-group-custom'>
-							<Label for='email'>Email Address</Label>
-							<input
-								type='email'
-								id='email'
-								className='form-control-custom'
-								{...register('email')}
-							/>
-							{errors.email && <FormFeedback style={{ color: '#ff0000' }}>{errors.email.message}</FormFeedback>}
-						</FormGroup>
+						<FormGroup
+							type='email'
+							id='email'
+							placeholder='Email'
+							classNameInput='form-control-custom'
+							register={register}
+							label='Email'
+							error={errors.email}
+						/>
 					</Col>
 					<Col xs='12' sm='12'>
-						<FormGroup className='form-group-custom'>
-							<Label for='password'>Password</Label>
-							<input
-								type='password'
-								id='password'
-								className='form-control-custom'
-								{...register('password')}
-							/>
-							{errors.password && <FormFeedback style={{ color: '#ff0000' }}>{errors.password.message}</FormFeedback>}
-						</FormGroup>
+						<FormGroup
+							type='password'
+							id='password'
+							placeholder='Password'
+							classNameInput='form-control-custom'
+							register={register}
+							label='Password'
+							error={errors.password}
+						/>
 					</Col>
 					<Col xs='12'>
-						<FormGroup>
-							<Button
-								color='secondary'
-								type='submit'
-							>
-								Create Account
-							</Button>
-						</FormGroup>
+						<Button
+							className='btn-secondary'
+							type='submit'
+							value='Create Account'
+						/>
 					</Col>
 				</Row>
 			</Form>

@@ -31,7 +31,7 @@ export const useRegisterForm = () => {
       email: '',
       password: ''
     },
-    mode: 'onSubmit',
+    mode: 'onBlur',
     resolver: yupResolver(RegisterSchema),
   })
 

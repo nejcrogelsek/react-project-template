@@ -1,11 +1,19 @@
 import { FC } from 'react'
-import { Input as ReactstrapInput, InputProps } from 'reactstrap'
+import { UseFormRegister } from 'react-hook-form'
 
-interface Props extends InputProps { }
+interface Props {
+	register: UseFormRegister<any>
+	type: string
+	id: string
+	className?: string
+	placeholder?: string
+	checked?: boolean
+	name?: string
+}
 
 const Input: FC<Props> = (props: Props) => {
-	const { ...rest } = props
-	return <ReactstrapInput {...rest} />
+	const { register, id, ...rest } = props
+	return <input {...register(id)} id={id} {...rest} />
 }
 
 export default Input

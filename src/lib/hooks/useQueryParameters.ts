@@ -86,7 +86,7 @@ export function useQueryParameters(): QueryParameters {
     if (typeof val === 'string') {
       return val
     } else if (Array.isArray(val) && val.length > 0) {
-      return val[0] as any
+      return val[0] ?? undefined
     }
     return undefined
   }
