@@ -3,6 +3,7 @@ import * as API from '../../../api/Api'
 import { useRegisterForm } from '../../../lib/hooks/react-hook-form/useRegisterForm'
 
 import { Col, Row, Form, FormGroup, Label, FormFeedback } from '../../../styles/components'
+
 import Button from '../../shared/Button/Button'
 import Input from '../../shared/Input/Input'
 
@@ -54,49 +55,49 @@ const RegisterForm: FC = () => {
 						</FormGroup>
 					</Col>
 				</Row>
-					<Col size={1}>
-						<FormGroup>
-							<Label htmlFor='date_of_birth'>Date of birth</Label>
-							<Input
-								type='date'
-								id='date_of_birth'
-								placeholder='date_of_birth'
-								register={register}
-							/>
-							{errors.date_of_birth && <FormFeedback>{errors.date_of_birth.message}</FormFeedback>}
-						</FormGroup>
-					</Col>
-					<Col size={1}>
-						<FormGroup>
-							<Label htmlFor='email'>email</Label>
-							<Input
-								type='email'
-								id='email'
-								placeholder='email'
-								register={register}
-							/>
-							{errors.email && <FormFeedback>{errors.email.message}</FormFeedback>}
-						</FormGroup>
-					</Col>
-					<Col size={1}>
-						<FormGroup>
-							<Label htmlFor='password'>Password</Label>
-							<Input
-								type='password'
-								id='password'
-								placeholder='password'
-								register={register}
-							/>
-							{errors.password && <FormFeedback>{errors.password.message}</FormFeedback>}
-						</FormGroup>
-					</Col>
-					<Col size={1}>
-						<Button
-							className='btn-secondary'
-							type='submit'
-							text='Create Account'
+				<Col size={1}>
+					<FormGroup>
+						<Label htmlFor='date_of_birth'>Date of birth</Label>
+						<Input
+							type='date'
+							id='date_of_birth'
+							placeholder='date_of_birth'
+							register={register}
 						/>
-					</Col>
+						{errors.date_of_birth && <FormFeedback>{errors.date_of_birth.message}</FormFeedback>}
+					</FormGroup>
+				</Col>
+				<Col size={1}>
+					<FormGroup>
+						<Label htmlFor='email'>email</Label>
+						<Input
+							type='email'
+							id='email'
+							placeholder='email'
+							register={register}
+						/>
+						{errors.email && <FormFeedback>{errors.email.message}</FormFeedback>}
+					</FormGroup>
+				</Col>
+				<Col size={1}>
+					<FormGroup>
+						<Label htmlFor='password'>Password</Label>
+						<Input
+							type='password'
+							id='password'
+							placeholder='password'
+							register={register}
+						/>
+						{errors.password && <FormFeedback>{errors.password.message}</FormFeedback>}
+					</FormGroup>
+				</Col>
+				<Col size={1}>
+					<Button
+						className='btn-secondary'
+						type='submit'
+						text='Create Account'
+					/>
+				</Col>
 			</Form>
 		</div>
 	)
