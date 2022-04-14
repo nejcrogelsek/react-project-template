@@ -29,7 +29,7 @@ const RegisterForm: FC = () => {
 	return (
 		<div className='RegisterForm'>
 			<Form onSubmit={onSubmit}>
-				<Row>
+				<Row direction='column'>
 					<Col size={1}>
 						<FormGroup>
 							<Label htmlFor='first_name'>First name</Label>

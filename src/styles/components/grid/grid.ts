@@ -28,14 +28,19 @@ const media = {
 	`,
 }
 
+export interface RowProps {
+	direction?: 'row' | 'column' | 'row-reverse' | 'column-reverse'
+}
+
 export interface ColProps {
 	size: number
 	collapse?: string
 }
 
 export const Grid = styled.div``
-export const Row = styled.div`
+export const Row = styled.div<RowProps>`
 	display: flex;
+	flex-direction: ${(props) => props.direction ? props.direction : 'row'};
 `
 export const Col = styled.div<ColProps>`
 	flex: ${(props) => props.size};
