@@ -54,7 +54,7 @@ const Routes: FC = () => {
 	return (
 		<Switch>
 			{AppRoutes.map((r) => {
-				const { type, path, ...rest } = r
+				const { type } = r
 				if (type === RouteType.PRIVATE) {
 					return (
 						<Route key={`${r.path}`} path={`/${r.path}`} element={<PrivateRoute>{r.children}</PrivateRoute>} />

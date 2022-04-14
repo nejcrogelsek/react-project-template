@@ -1,7 +1,6 @@
 import React from 'react'
 import cs from 'classnames'
 import { IconSvg, IconDefinition } from './Icon.generated'
-import './Icon.scss'
 export * from './Icon.generated'
 interface Props {
   icon?: IconDefinition

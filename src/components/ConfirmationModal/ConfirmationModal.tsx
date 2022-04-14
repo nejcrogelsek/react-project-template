@@ -1,8 +1,8 @@
 import { FC, useEffect } from 'react'
-import { Button } from 'reactstrap'
-
-import Modal from '../shared/Modal/Modal'
 import { useRouter } from '../../lib/hooks/useRouter'
+
+import { Button } from 'reactstrap'
+import { Modal } from '..'
 
 export interface Props {
 	showCloseButton?: boolean
