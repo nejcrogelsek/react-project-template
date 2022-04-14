@@ -1,6 +1,5 @@
 import { FC, ReactChild } from 'react'
 
-//components
 import { Modal as ModalRS } from 'reactstrap'
 
 interface Props {

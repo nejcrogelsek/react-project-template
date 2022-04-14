@@ -1,10 +1,9 @@
 import { FC } from 'react'
-import { Form } from 'reactstrap'
 import { useLoginForm } from '../../../lib/hooks/react-hook-form/useLoginForm'
-
 import * as API from '../../../api/Api'
-import FormGroup from '../../shared/FormGroup/FormGroup'
 import Button from '../../shared/Button/Button'
+import Input from '../../shared/Input/Input'
+import { Form, FormGroup, Label, FormFeedback } from '../../../styles/components/form/form'
 
 const LoginForm: FC = () => {
 	const { errors, handleSubmit, register, reset } = useLoginForm()
@@ -24,29 +23,31 @@ const LoginForm: FC = () => {
 
 	return (
 		<div className='LoginForm'>
-			<Form inline onSubmit={onSubmit}>
-				<FormGroup
-					type='email'
-					id='email'
-					placeholder='Email'
-					classNameInput='LoginForm-input'
-					register={register}
-					label='Email'
-					error={errors.email}
-				/>
-				<FormGroup
-					type='password'
-					id='password'
-					placeholder='Password'
-					classNameInput='LoginForm-input'
-					register={register}
-					label='Password'
-					error={errors.password}
-				/>
+			<Form onSubmit={onSubmit}>
+				<FormGroup>
+					<Label htmlFor='email'>email</Label>
+					<Input
+						type='email'
+						id='email'
+						placeholder='email'
+						register={register}
+					/>
+					{errors.email && <FormFeedback>{errors.email.message}</FormFeedback>}
+				</FormGroup>
+				<FormGroup>
+					<Label htmlFor='password'>Password</Label>
+					<Input
+						type='password'
+						id='password'
+						placeholder='password'
+						register={register}
+					/>
+					{errors.password && <FormFeedback>{errors.password.message}</FormFeedback>}
+				</FormGroup>
 				<Button
 					className='btn-secondary'
 					type='submit'
-					value='Login'
+					text='Login'
 				/>
 			</Form>
 		</div>

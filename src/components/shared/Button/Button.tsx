@@ -1,13 +1,14 @@
 import { FC } from 'react'
 
 interface Props {
-	type: 'button' | 'submit' | 'reset' | undefined
-	className: string
-	value: string
+	type: 'button' | 'submit' | 'reset'
+	className?: string
+	text: string
+	onClick?: () => void
 }
 
-const Button: FC<Props> = ({ type, className, value }: Props) => {
-	return <button className={className} type={type}>{value}</button>
+const Button: FC<Props> = ({ type, className, text, onClick }: Props) => {
+	return <button className={className} type={type} onClick={onClick}>{text}</button>
 }
 
 export default Button

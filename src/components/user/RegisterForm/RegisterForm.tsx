@@ -2,14 +2,9 @@ import { FC } from 'react'
 import * as API from '../../../api/Api'
 import { useRegisterForm } from '../../../lib/hooks/react-hook-form/useRegisterForm'
 
-//Components
-import {
-	Row,
-	Col,
-	Form
-} from 'reactstrap'
-import FormGroup from '../../shared/FormGroup/FormGroup'
+import { Col, Row, Form, FormGroup, Label, FormFeedback } from '../../../styles/components'
 import Button from '../../shared/Button/Button'
+import Input from '../../shared/Input/Input'
 
 const RegisterForm: FC = () => {
 	const { errors, handleSubmit, register, reset } = useRegisterForm()
@@ -34,68 +29,74 @@ const RegisterForm: FC = () => {
 		<div className='RegisterForm'>
 			<Form onSubmit={onSubmit}>
 				<Row>
-					<Col xs='12' sm='6'>
-						<FormGroup
-							type='text'
-							id='first_name'
-							placeholder='first_name'
-							classNameInput='form-control-custom'
-							register={register}
-							label='first_name'
-							error={errors.first_name}
-						/>
+					<Col size={1}>
+						<FormGroup>
+							<Label htmlFor='first_name'>First name</Label>
+							<Input
+								type='text'
+								id='first_name'
+								placeholder='first_name'
+								register={register}
+							/>
+							{errors.first_name && <FormFeedback>{errors.first_name.message}</FormFeedback>}
+						</FormGroup>
 					</Col>
-					<Col xs='12' sm='6'>
-						<FormGroup
-							type='text'
-							id='last_name'
-							placeholder='last_name'
-							classNameInput='form-control-custom'
-							register={register}
-							label='last_name'
-							error={errors.last_name}
-						/>
+					<Col size={1}>
+						<FormGroup>
+							<Label htmlFor='last_name'>Last name</Label>
+							<Input
+								type='text'
+								id='last_name'
+								placeholder='last_name'
+								register={register}
+							/>
+							{errors.last_name && <FormFeedback>{errors.last_name.message}</FormFeedback>}
+						</FormGroup>
 					</Col>
-					<Col xs='12' sm='12'>
-						<FormGroup
-							type='date'
-							id='date_of_birth'
-							classNameInput='form-control-custom'
-							register={register}
-							label='Date of birth'
-							error={errors.date_of_birth}
-						/>
+				</Row>
+					<Col size={1}>
+						<FormGroup>
+							<Label htmlFor='date_of_birth'>Date of birth</Label>
+							<Input
+								type='date'
+								id='date_of_birth'
+								placeholder='date_of_birth'
+								register={register}
+							/>
+							{errors.date_of_birth && <FormFeedback>{errors.date_of_birth.message}</FormFeedback>}
+						</FormGroup>
 					</Col>
-					<Col xs='12' sm='12'>
-						<FormGroup
-							type='email'
-							id='email'
-							placeholder='Email'
-							classNameInput='form-control-custom'
-							register={register}
-							label='Email'
-							error={errors.email}
-						/>
+					<Col size={1}>
+						<FormGroup>
+							<Label htmlFor='email'>email</Label>
+							<Input
+								type='email'
+								id='email'
+								placeholder='email'
+								register={register}
+							/>
+							{errors.email && <FormFeedback>{errors.email.message}</FormFeedback>}
+						</FormGroup>
 					</Col>
-					<Col xs='12' sm='12'>
-						<FormGroup
-							type='password'
-							id='password'
-							placeholder='Password'
-							classNameInput='form-control-custom'
-							register={register}
-							label='Password'
-							error={errors.password}
-						/>
+					<Col size={1}>
+						<FormGroup>
+							<Label htmlFor='password'>Password</Label>
+							<Input
+								type='password'
+								id='password'
+								placeholder='password'
+								register={register}
+							/>
+							{errors.password && <FormFeedback>{errors.password.message}</FormFeedback>}
+						</FormGroup>
 					</Col>
-					<Col xs='12'>
+					<Col size={1}>
 						<Button
 							className='btn-secondary'
 							type='submit'
-							value='Create Account'
+							text='Create Account'
 						/>
 					</Col>
-				</Row>
 			</Form>
 		</div>
 	)
