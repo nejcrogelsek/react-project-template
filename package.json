@@ -13,6 +13,9 @@
     "generate:component": "npx generate-react-cli component",
     "generate:page": "npx generate-react-cli component --type=page",
     "code:format": "prettier --write \"src/**/*.{ts,tsx,js,css,scss,html}\"",
+		"update:check": "yarn outdated",
+		"update:single": "yarn up",
+		"update": "yarn update",
     "code:check": "prettier --check \"src/**/*.{ts,tsx,js,css,scss,html}\"",
     "code:format:specific-file": "prettier --write"
   },
