@@ -1,6 +1,6 @@
 import { FC } from 'react'
-import { UseFormRegister } from 'react-hook-form'
 import styled from 'styled-components'
+import { UseFormRegister } from 'react-hook-form'
 
 export enum InputType {
 	BUTTON = 'button',
@@ -39,13 +39,13 @@ interface Props {
 	onClick?: () => void
 }
 
-const InputStyle = styled.input``
+export const InputStyle = styled.input<Props>``
 
 const Input: FC<Props> = ({ register, id, className, ...rest }: Props) => {
 	if (register) {
 		return <input {...register(id)} id={id} {...rest} />
 	}
-	return <InputStyle className={className} {...rest} />
+	return <InputStyle className={className} id={id} {...rest} />
 }
 
 export default Input

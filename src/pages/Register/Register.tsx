@@ -5,7 +5,7 @@ interface Props { }
 
 const Register: FC<Props> = (props: Props) => {
 	return (
-		<div className='Register'>
+		<div className='register'>
 			<RegisterForm />
 		</div>
 	)

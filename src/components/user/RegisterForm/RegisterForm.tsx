@@ -2,8 +2,7 @@ import { FC } from 'react'
 import * as API from '../../../api/Api'
 import { useRegisterForm } from '../../../lib/hooks/react-hook-form/useRegisterForm'
 
-import { Col, Row, Form, FormGroup, Label, FormFeedback } from '../../../styles/components'
-
+import { Row, Col, Form, FormGroup, Label, FormFeedback } from '../../../styles/components'
 import Button from '../../shared/Button/Button'
 import Input from '../../shared/Input/Input'
 
@@ -27,7 +26,7 @@ const RegisterForm: FC = () => {
 	})
 
 	return (
-		<div className='RegisterForm'>
+		<div className='register-form'>
 			<Form onSubmit={onSubmit}>
 				<Row direction='column'>
 					<Col size={1}>

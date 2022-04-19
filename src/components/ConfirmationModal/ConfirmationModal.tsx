@@ -15,7 +15,7 @@ export interface Props {
 	}
 }
 
-const ConfirmationModal: FC<Props> = (props: Props) => {
+const ConfirmationModal: FC<Props> = ({ confirmationData }: Props) => {
 	const router = useRouter()
 
 	useEffect(() => {
@@ -23,20 +23,20 @@ const ConfirmationModal: FC<Props> = (props: Props) => {
 	}, [router.location.pathname])
 
 	const confirm = () => {
-		if (props.confirmationData.onConfirm) {
-			props.confirmationData.onConfirm()
+		if (confirmationData.onConfirm) {
+			confirmationData.onConfirm()
 		}
 	}
 
 	const cancel = () => {
-		if (props.confirmationData.onCancel) {
-			props.confirmationData.onCancel()
+		if (confirmationData.onCancel) {
+			confirmationData.onCancel()
 		}
 	}
 
 	return (
-		<Modal isOpen={props.confirmationData.isOpen} toggle={() => cancel()}>
-			<h4 className='Confirmation-text'>{props.confirmationData.text}</h4>
+		<Modal isOpen={confirmationData.isOpen} toggle={() => cancel()}>
+			<h4 className='confirmation-text'>{confirmationData.text}</h4>
 			<Button color='success' onClick={confirm}>
 				ok
 			</Button>

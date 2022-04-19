@@ -4,7 +4,7 @@ interface Props { }
 
 const Profile: FC<Props> = (props: Props) => {
 	return (
-		<div className='Profile'>
+		<div className='profile'>
 			<h1>Profile</h1>
 		</div>
 	)

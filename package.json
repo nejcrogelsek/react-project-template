@@ -8,8 +8,13 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start:clean": "rm -rf node_modules/ && rm -rf yarn.lock && rm -rf yarn-error.log && yarn && yarn start",
+		"generate:icons": "node scripts/generate-icons.js",
+		"generate:images": "node scripts/generate-images.js",
     "generate:component": "npx generate-react-cli component",
-    "generate:page": "npx generate-react-cli component --type=page"
+    "generate:page": "npx generate-react-cli component --type=page",
+		"code:format": "prettier --write \"src/**/*.{ts,tsx,js,css,scss,html}\"",
+		"code:check": "prettier --check \"src/**/*.{ts,tsx,js,css,scss,html}\"",
+		"code:format:specific-file": "prettier --write"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.8.8",

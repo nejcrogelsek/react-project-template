@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Header: FC = () => {
 	return (
-    <div className='Header'>
+    <div className='header'>
       <Link to='/login'>login</Link>
       <Link to='/register'>register</Link>
     </div>

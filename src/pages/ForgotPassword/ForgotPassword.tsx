@@ -4,7 +4,7 @@ interface Props { }
 
 const ForgotPassword: FC<Props> = (props: Props) => {
 	return (
-		<div className='ForgotPassword'>
+		<div className='forgot-password'>
 			<h1>ForgotPassword</h1>
 		</div>
 	)

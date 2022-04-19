@@ -5,7 +5,7 @@ interface Props { }
 
 const Login: FC<Props> = (props: Props) => {
 	return (
-		<div className='Login'>
+		<div className='login'>
 			<LoginForm />
 		</div>
 	)

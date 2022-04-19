@@ -22,7 +22,7 @@ export const useLoginForm = () => {
       email: '',
       password: ''
     },
-    mode: 'onBlur', // when input is unfocused or blured
+    mode: 'onBlur', // when input is unfocused
     resolver: yupResolver(LoginSchema),
   })
 

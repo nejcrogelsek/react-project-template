@@ -10,11 +10,11 @@ interface Props {
 	toggle: () => void
 }
 
-const Modal: FC<Props> = (props: Props) => {
+const Modal: FC<Props> = ({title, isOpen, toggle, children}: Props) => {
 	return (
-		<ModalRS className='Modal' isOpen={props.isOpen} toggle={props.toggle}>
-			{props.title && <h3>{props.title}</h3>}
-			{props.children}
+		<ModalRS className='modal' isOpen={isOpen} toggle={toggle}>
+			{title && <h3>{title}</h3>}
+			{children}
 		</ModalRS>
 	)
 }
