@@ -4,7 +4,13 @@ import { RouteProps, Routes as Switch, Route } from 'react-router-dom'
 import PrivateRoute from './PrivateRoute'
 import RestrictedRoute from './RestrictedRoute'
 
-import { ForgotPassword, Home, Login, Page404, Profile, Register, ResetPassword } from '../pages'
+import ForgotPassword from 'pages/ForgotPassword/ForgotPassword'
+import Home from 'pages/Home/Home'
+import Login from 'pages/Login/Login'
+import Page404 from 'pages/Page404/Page404'
+import Profile from 'pages/Profile/Profile'
+import Register from 'pages/Register/Register'
+import ResetPassword from 'pages/ResetPassword/ResetPassword'
 
 export enum RouteType {
 	PUBLIC,

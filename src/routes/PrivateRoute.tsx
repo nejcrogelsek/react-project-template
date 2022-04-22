@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { RouteProps, useLocation, Navigate } from 'react-router-dom'
 import { observer } from 'mobx-react'
-import authStore from '../lib/stores/auth.store'
+import authStore from 'lib/stores/auth.store'
 
 const PrivateRoute: FC<RouteProps> = ({ children }: RouteProps) => {
 	const location = useLocation()

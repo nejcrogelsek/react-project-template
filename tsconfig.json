@@ -1,4 +1,5 @@
 {
+	"extends": "./tsconfig-base.json",
   "compilerOptions": {
     "target": "ES2022",
     "lib": [
@@ -22,6 +23,7 @@
 		"baseUrl": "src"
   },
   "include": [
-    "src"
+    "src",
+		"./tsconfig-base.json"
   ]
 }

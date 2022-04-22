@@ -1,5 +1,5 @@
 import { makeAutoObservable } from 'mobx'
-import * as API from '../../api/Api'
+import * as API from 'api/Api'
 
 export interface AuthContextType {
   isAuthenticated: boolean

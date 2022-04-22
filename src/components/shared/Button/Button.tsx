@@ -1,14 +1,12 @@
-import { FC } from 'react'
+import { ButtonHTMLAttributes, FC } from 'react'
+import styled from 'styled-components'
 
-interface Props {
-	type: 'button' | 'submit' | 'reset'
-	className?: string
-	text: string
-	onClick?: () => void
-}
+interface Props extends ButtonHTMLAttributes<T> {}
 
-const Button: FC<Props> = ({ type, className, text, onClick }: Props) => {
-	return <button className={className} type={type} onClick={onClick}>{text}</button>
+export const ButtonStyle = styled.button<Props>``
+
+const Button: FC<Props> = ({ children, className, onClick, type }: Props) => {
+	return <ButtonStyle className={className} type={type} onClick={onClick}>{children}</ButtonStyle>
 }
 
 export default Button

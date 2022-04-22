@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import RegisterForm from '../../components/user/RegisterForm/RegisterForm'
+import RegisterForm from 'components/user/RegisterForm/RegisterForm'
 
 interface Props { }
 

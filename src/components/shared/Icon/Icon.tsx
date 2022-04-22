@@ -7,7 +7,6 @@ interface Props {
   alt?: string
   style?: React.CSSProperties
   className?: string
-  spin?: boolean
 }
 const Icon = (props: Props) => {
   if (!props.icon) {
@@ -18,7 +17,6 @@ const Icon = (props: Props) => {
       style={props.style}
       className={cs(
         'Icon',
-        props.spin ? 'Icon--spin' : undefined,
         props.className
       )}
     >

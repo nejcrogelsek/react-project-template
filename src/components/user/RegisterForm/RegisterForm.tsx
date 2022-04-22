@@ -1,10 +1,10 @@
 import { FC } from 'react'
-import * as API from '../../../api/Api'
-import { useRegisterForm } from '../../../lib/hooks/react-hook-form/useRegisterForm'
+import * as API from 'api/Api'
+import { useRegisterForm } from 'lib/hooks/react-hook-form/useRegisterForm'
 
-import { Row, Col, Form, FormGroup, Label, FormFeedback } from '../../../styles/components'
-import Button from '../../shared/Button/Button'
-import Input from '../../shared/Input/Input'
+import { Row, Col, Form, FormGroup, Label, FormFeedback } from 'styles/shared'
+import Button from 'components/shared/Button/Button'
+import Input from 'components/shared/Input/Input'
 
 const RegisterForm: FC = () => {
 	const { errors, handleSubmit, register, reset } = useRegisterForm()
@@ -94,8 +94,7 @@ const RegisterForm: FC = () => {
 					<Button
 						className='btn-secondary'
 						type='submit'
-						text='Create Account'
-					/>
+					>Create Account</Button>
 				</Col>
 			</Form>
 		</div>

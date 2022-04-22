@@ -1,10 +1,10 @@
 import { FC } from 'react'
-import * as API from '../../../api/Api'
-import { useLoginForm } from '../../../lib/hooks/react-hook-form/useLoginForm'
+import * as API from 'api/Api'
+import { useLoginForm } from 'lib/hooks/react-hook-form/useLoginForm'
 
-import { Form, FormGroup, Label, FormFeedback } from '../../../styles/components/form/form'
-import Button from '../../shared/Button/Button'
-import Input from '../../shared/Input/Input'
+import { Form, FormGroup, Label, FormFeedback } from 'styles/shared'
+import Button from 'components/shared/Button/Button'
+import Input from 'components/shared/Input/Input'
 
 const LoginForm: FC = () => {
 	const { errors, handleSubmit, register, reset } = useLoginForm()
@@ -48,8 +48,7 @@ const LoginForm: FC = () => {
 				<Button
 					className='btn-secondary'
 					type='submit'
-					text='Login'
-				/>
+				>Login</Button>
 			</Form>
 		</div>
 	)

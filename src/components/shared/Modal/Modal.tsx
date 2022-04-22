@@ -1,6 +1,5 @@
 import { FC, ReactChild } from 'react'
-
-import { Modal as ModalRS } from 'reactstrap'
+import styled from 'styled-components'
 
 interface Props {
 	isOpen: boolean
@@ -10,12 +9,26 @@ interface Props {
 	toggle: () => void
 }
 
+interface ModalStyleProps {
+	isOpen: boolean
+	toggle: () => void
+}
+
+export const ModalStyle = styled.div<ModalStyleProps>`
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background-color: white;
+	padding: 1rem;
+`
+
 const Modal: FC<Props> = ({title, isOpen, toggle, children}: Props) => {
 	return (
-		<ModalRS className='modal' isOpen={isOpen} toggle={toggle}>
+		<ModalStyle isOpen={isOpen} toggle={toggle}>
 			{title && <h3>{title}</h3>}
 			{children}
-		</ModalRS>
+		</ModalStyle>
 	)
 }
 
