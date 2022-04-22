@@ -6,7 +6,11 @@ interface Props extends ButtonHTMLAttributes<T> {}
 export const ButtonStyle = styled.button<Props>``
 
 const Button: FC<Props> = ({ children, className, onClick, type }: Props) => {
-	return <ButtonStyle className={className} type={type} onClick={onClick}>{children}</ButtonStyle>
+  return (
+    <ButtonStyle className={className} type={type} onClick={onClick}>
+      {children}
+    </ButtonStyle>
+  )
 }
 
 export default Button

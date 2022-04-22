@@ -29,14 +29,9 @@ export interface UserDetailsResponse {
 }
 
 export const register = async (data: RegisterInput) =>
-  apiRequest<RegisterInput, LoginRegisterResponse>(
-    'post',
-    'users/register',
-    data
-  )
+  apiRequest<RegisterInput, LoginRegisterResponse>('post', 'users/register', data)
 
 export const login = async (data: LoginInput) =>
   apiRequest<LoginInput, LoginRegisterResponse>('post', 'users/login', data)
 
-export const getUserDetails = async () =>
-  apiRequest<undefined, UserDetailsResponse>('get', 'users/me')
+export const getUserDetails = async () => apiRequest<undefined, UserDetailsResponse>('get', 'users/me')

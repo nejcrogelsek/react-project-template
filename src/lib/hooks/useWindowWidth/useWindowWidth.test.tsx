@@ -4,9 +4,9 @@ import { useWindowWidth } from './useWindowWidth'
 jest.mock('hooks/useWindowWidth')
 
 describe('useWindowWidth hook', () => {
-	it('provide window width', async () => {
-		const { result } = renderHook(useWindowWidth)
+  it('provide window width', async () => {
+    const { result } = renderHook(useWindowWidth)
 
-		expect(result).toBeGreaterThan(0)
-	})
+    expect(result).toBeGreaterThan(0)
+  })
 })

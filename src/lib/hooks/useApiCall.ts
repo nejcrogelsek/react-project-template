@@ -10,7 +10,7 @@ export function useApiCall<R, A extends any[]>(
      * Whether to skip/ignore this query.
      */
     skip?: boolean
-  }
+  },
 ) {
   const skip = Boolean(options?.skip)
   const [loading, setLoading] = useState(true)
@@ -43,6 +43,6 @@ export function useApiCall<R, A extends any[]>(
     loading,
     args,
     data,
-    reload
+    reload,
   }
 }

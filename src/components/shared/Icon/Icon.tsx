@@ -13,13 +13,7 @@ const Icon = (props: Props) => {
     return null
   }
   return (
-    <div
-      style={props.style}
-      className={cs(
-        'Icon',
-        props.className
-      )}
-    >
+    <div style={props.style} className={cs('Icon', props.className)}>
       {IconSvg[props.icon]}
     </div>
   )

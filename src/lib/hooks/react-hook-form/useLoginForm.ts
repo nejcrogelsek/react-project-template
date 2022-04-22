@@ -9,18 +9,19 @@ export interface LoginFields {
 
 export const useLoginForm = () => {
   const LoginSchema = Yup.object().shape({
-    email: Yup.string()
-      .email('Please enter a valid email!')
-      .required('Email is required'),
-    password: Yup.string()
-      .min(6, 'Password should be more than 6 letters')
-      .required('Password is required')
+    email: Yup.string().email('Please enter a valid email!').required('Email is required'),
+    password: Yup.string().min(6, 'Password should be more than 6 letters').required('Password is required'),
   })
 
-	const { handleSubmit, formState: { errors }, register, reset } = useForm({
+  const {
+    handleSubmit,
+    formState: { errors },
+    register,
+    reset,
+  } = useForm({
     defaultValues: {
       email: '',
-      password: ''
+      password: '',
     },
     mode: 'onBlur', // when input is unfocused
     resolver: yupResolver(LoginSchema),

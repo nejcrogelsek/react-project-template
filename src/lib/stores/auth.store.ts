@@ -12,30 +12,30 @@ export interface AuthContextType {
 }
 
 class AuthStore {
-	isAuthenticated = false
+  isAuthenticated = false
   isLoading = false
   user?: API.User = undefined
   error?: string | { [key: string]: string } = undefined
 
-	constructor() {
-		makeAutoObservable(this)
-	}
+  constructor() {
+    makeAutoObservable(this)
+  }
 
-	setIsLoading(value: boolean) {
-		this.isLoading = value
-	}
+  setIsLoading(value: boolean) {
+    this.isLoading = value
+  }
 
-	login(user: API.User) {
-		this.user = user
-	}
+  login(user: API.User) {
+    this.user = user
+  }
 
-	logout() {
-		this.user = undefined
-	}
+  logout() {
+    this.user = undefined
+  }
 
-	reloadAuthentication() {
-		console.log('authStore -> reloadAuthentication')
-	}
+  reloadAuthentication() {
+    console.log('authStore -> reloadAuthentication')
+  }
 }
 
 const authStore = new AuthStore()

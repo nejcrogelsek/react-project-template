@@ -1,7 +1,7 @@
 import qs, { ParseOptions } from 'query-string'
 import { useRouter } from './useRouter'
 const qsOptions: ParseOptions = {
-  arrayFormat: 'comma'
+  arrayFormat: 'comma',
 }
 type FilterValue = string | string[] | number | undefined
 export interface QueryParameters {
@@ -46,38 +46,31 @@ export interface QueryParameters {
 const mergeValues = (
   originalValues: qs.ParsedQuery<string>,
   fields: string | { [field: string]: FilterValue },
-  value?: FilterValue
+  value?: FilterValue,
 ) => {
   if (typeof fields === 'string') {
     return {
       ...originalValues,
-      [fields]: typeof value === 'number' ? `${value}` : value
+      [fields]: typeof value === 'number' ? `${value}` : value,
     }
   } else {
     return {
       ...originalValues,
-      ...fields
+      ...fields,
     }
   }
 }
 export function useQueryParameters(): QueryParameters {
   const router = useRouter()
   const values = qs.parse(router.location.search, qsOptions)
-  const hash =
-    router.location.hash.length > 1 ? router.location.hash : undefined
-  const getUrlWithQueryParams = (
-    fields: string | { [field: string]: FilterValue },
-    value?: FilterValue
-  ) => {
+  const hash = router.location.hash.length > 1 ? router.location.hash : undefined
+  const getUrlWithQueryParams = (fields: string | { [field: string]: FilterValue }, value?: FilterValue) => {
     const newValues = mergeValues(values, fields, value)
     const queryString = qs.stringify(newValues, qsOptions)
     const url = `${router.location.pathname}?${queryString}${hash || ''}`
     return url
   }
-  const set: QueryParameters['set'] = (
-    fields: string | { [field: string]: FilterValue },
-    value?: FilterValue
-  ) => {
+  const set: QueryParameters['set'] = (fields: string | { [field: string]: FilterValue }, value?: FilterValue) => {
     const url = getUrlWithQueryParams(fields, value)
     router.navigate(url, { replace: true })
   }
@@ -120,6 +113,6 @@ export function useQueryParameters(): QueryParameters {
     getArray,
     getUrlWithQueryParams,
     set,
-    setHash
+    setHash,
   }
 }

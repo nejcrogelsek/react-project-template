@@ -1,13 +1,13 @@
 import { FC } from 'react'
 
-interface Props { }
+interface Props {}
 
 const TemplateName: FC<Props> = (props: Props) => {
-	return (
-		<div className='template-name'>
-			<h1>TemplateName</h1>
-		</div>
-	)
+  return (
+    <div className="template-name">
+      <h1>TemplateName</h1>
+    </div>
+  )
 }
 
 export default TemplateName

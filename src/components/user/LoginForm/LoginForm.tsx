@@ -7,51 +7,42 @@ import Button from 'components/shared/Button/Button'
 import Input from 'components/shared/Input/Input'
 
 const LoginForm: FC = () => {
-	const { errors, handleSubmit, register, reset } = useLoginForm()
+  const { errors, handleSubmit, register, reset } = useLoginForm()
 
-	const onSubmit = handleSubmit(async (data) => {
-		try {
-			const res = await API.login({
-				email: data.email,
-				password: data.password
-			})
+  const onSubmit = handleSubmit(async (data) => {
+    try {
+      const res = await API.login({
+        email: data.email,
+        password: data.password,
+      })
 
-			console.log('res', res)
+      console.log('res', res)
 
-			reset()
-		} catch (e) { console.log(e) }
-	})
+      reset()
+    } catch (e) {
+      console.log(e)
+    }
+  })
 
-	return (
-		<div className='login-form'>
-			<Form onSubmit={onSubmit}>
-				<FormGroup>
-					<Label htmlFor='email'>email</Label>
-					<Input
-						type='email'
-						id='email'
-						placeholder='email'
-						register={register}
-					/>
-					{errors.email && <FormFeedback>{errors.email.message}</FormFeedback>}
-				</FormGroup>
-				<FormGroup>
-					<Label htmlFor='password'>Password</Label>
-					<Input
-						type='password'
-						id='password'
-						placeholder='password'
-						register={register}
-					/>
-					{errors.password && <FormFeedback>{errors.password.message}</FormFeedback>}
-				</FormGroup>
-				<Button
-					className='btn-secondary'
-					type='submit'
-				>Login</Button>
-			</Form>
-		</div>
-	)
+  return (
+    <div className="login-form">
+      <Form onSubmit={onSubmit}>
+        <FormGroup>
+          <Label htmlFor="email">email</Label>
+          <Input type="email" id="email" placeholder="email" register={register} />
+          {errors.email && <FormFeedback>{errors.email.message}</FormFeedback>}
+        </FormGroup>
+        <FormGroup>
+          <Label htmlFor="password">Password</Label>
+          <Input type="password" id="password" placeholder="password" register={register} />
+          {errors.password && <FormFeedback>{errors.password.message}</FormFeedback>}
+        </FormGroup>
+        <Button className="btn-secondary" type="submit">
+          Login
+        </Button>
+      </Form>
+    </div>
+  )
 }
 
 export default LoginForm

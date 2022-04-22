@@ -8,14 +8,14 @@ export const removeHTMLEntities = (value: string) => {
     '&lt;': '<',
     '&gt;': '>',
     '&amp;': '&',
-		'&quot;': '"',
-    '&apos;': '\'',
+    '&quot;': '"',
+    '&apos;': "'",
     '&cent;': '¢',
     '&pound;': '£',
     '&yen;': '¥',
     '&euro;': '€',
     '&copy;': '©',
-    '&reg;': '®'
+    '&reg;': '®',
   }
 
   return value.replace(/&[a-z]{3,5};/g, function (m) {

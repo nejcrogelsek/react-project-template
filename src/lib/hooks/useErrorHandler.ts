@@ -25,11 +25,7 @@ export const useErrorHandler = () => {
       return
     }
 
-    if (
-      error.response.data &&
-      error.response.data.errors &&
-      Object.keys(error.response.data.errors).length > 0
-    ) {
+    if (error.response.data && error.response.data.errors && Object.keys(error.response.data.errors).length > 0) {
       const errorsData = error.response.data.errors
       const errorsObject: ObjectError = {}
 
@@ -66,6 +62,6 @@ export const useErrorHandler = () => {
     handleError,
     reset,
     setStringError: setStringError,
-    setObjectError: setObjectError
+    setObjectError: setObjectError,
   }
 }
