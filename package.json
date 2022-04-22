@@ -19,6 +19,11 @@
     "code:format": "prettier --write \"src/**/*.{ts,tsx,js,css,scss,html}\"",
     "code:format:specific-file": "prettier --write"
   },
+	"husky": {
+		"hooks": {
+			"pre-commit": "yarn run code:format && git add -A ."
+		}
+	},
   "dependencies": {
     "@hookform/resolvers": "^2.8.8",
     "@material-ui/core": "^4.12.4",
@@ -55,6 +60,7 @@
     "@typescript-eslint/parser": "^5.18.0",
     "eslint": "^8.13.0",
     "eslint-plugin-react": "^7.29.4",
+    "husky": "^7.0.4",
     "prettier": "^2.6.2"
   },
   "eslintConfig": {
