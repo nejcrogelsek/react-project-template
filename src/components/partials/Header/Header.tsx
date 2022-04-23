@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 
 const Header: FC = () => {
   return (
-    <div className="header">
+    <header className="header">
       <Link to="/login">login</Link>
       <Link to="/register">register</Link>
-    </div>
+    </header>
   )
 }
 
