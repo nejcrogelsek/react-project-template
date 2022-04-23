@@ -26,9 +26,9 @@ const LoginForm: FC = () => {
 
   return (
     <div className="login-form">
-      <Form onSubmit={onSubmit}>
+      <Form name="form" onSubmit={onSubmit}>
         <FormGroup>
-          <Label htmlFor="email">email</Label>
+          <Label htmlFor="email">Email</Label>
           <Input type="email" id="email" placeholder="email" register={register} />
           {errors.email && <FormFeedback>{errors.email.message}</FormFeedback>}
         </FormGroup>
