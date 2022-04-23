@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes, FC } from 'react'
 import styled from 'styled-components'
 
-interface Props extends ButtonHTMLAttributes<T> {}
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
 export const ButtonStyle = styled.button<Props>``
 

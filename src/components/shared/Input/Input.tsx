@@ -2,7 +2,7 @@ import { FC, HTMLInputTypeAttribute, InputHTMLAttributes } from 'react'
 import styled from 'styled-components'
 import { UseFormRegister } from 'react-hook-form'
 
-interface Props extends InputHTMLAttributes<T> {
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
   type: HTMLInputTypeAttribute
   id: string
   register?: UseFormRegister<any>
