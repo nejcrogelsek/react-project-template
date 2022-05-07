@@ -1,3 +1,4 @@
+# Don' t forget to delete .git folder.
 # React Project Template
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
