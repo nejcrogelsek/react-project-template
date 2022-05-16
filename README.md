@@ -15,7 +15,7 @@ In the project directory, you can run:
 
 ### `yarn start:clean`
 
-Remove node_modules & yarn.lock & yarn-error.log files. Then it runs: `yarn` to install all packages & finally `yarn start` to run the app in the development mode.\
+Remove `node_modules` & `yarn.lock` & `yarn-error.log` files. Then it runs: `yarn` to install all packages & finally `yarn:start` to run the app in the development mode.\
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
@@ -72,20 +72,20 @@ Generates new component with specified name.
 
 ### Check for updates
 
-`yarn update:check` - Check for any packages updates.
-`yarn update:single packageName` - Updates one package.
-`yarn update` - Updates all packages.
+- `yarn update:check` - Check for any packages updates.
+- `yarn update:single packageName` - Updates one package.
+- `yarn update` - Updates all packages.
 
 ### Prettier
 
-`yarn code:check` - Check for any prettier errors.
-`yarn code:format` - Format code.
-`yarn code:format:specific-file` - Format specific file.
+- `yarn code:check` - Check for any prettier errors.
+- `yarn code:format` - Format code.
+- `yarn code:format:specific-file` - Format specific file.
 
 ### eslint
 
-`yarn lint` - Check for any eslint errors.
-`yarn lint-fix` - Fix some of the errors.
+- `yarn lint` - Check for any eslint errors.
+- `yarn lint-fix` - Fix some of the errors.
 
 ## Learn More
 
