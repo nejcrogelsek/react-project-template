@@ -85,7 +85,7 @@ Generates new component with specified name.
 ### eslint
 
 - `yarn lint` - Check for any eslint errors.
-- `yarn lint-fix` - Fix some of the errors.
+- `yarn lint:fix` - Fix some of the errors.
 
 ## Learn More
 
