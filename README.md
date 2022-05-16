@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 **First steps:**
 1. Clone project by running:
 `git clone https://github.com/nejcrogelsek/react-project-template.git`
-2. Delete .git file inside cloned project
+2. Delete .git file inside cloned project.
 3. Run: `yarn run start:clean`
 4. Run: `yarn run husky:postinstall` to install husky git hook (automatically formats the code when pushing code to github)
 
@@ -15,7 +15,8 @@ In the project directory, you can run:
 
 ### `yarn start:clean`
 
-Remove `node_modules` & `yarn.lock` & `yarn-error.log` files. Then it runs: `yarn` to install all packages & finally `yarn:start` to run the app in the development mode.\
+Remove `node_modules` & `yarn.lock` & `yarn-error.log` files.
+Then it runs: `yarn` to install all packages & finally `yarn start` to run the app in the development mode.\
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
