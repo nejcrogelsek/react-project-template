@@ -1,12 +1,12 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { FC, SelectHTMLAttributes } from 'react'
+import { FC, ReactNode, SelectHTMLAttributes } from 'react'
 import styled from 'styled-components'
 import { UseFormRegister } from 'react-hook-form'
 
 interface Props extends SelectHTMLAttributes<HTMLSelectElement> {
   id: string
   register?: UseFormRegister<any>
-  children: any
+  children: ReactNode | ReactNode[]
 }
 
 export const SelectStyle = styled.select<Props>`
