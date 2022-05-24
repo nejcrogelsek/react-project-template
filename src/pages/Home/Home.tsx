@@ -8,8 +8,8 @@ const Home: FC = () => {
       <h1>Home component</h1>
       <NavLink to="/login"> Go to Login</NavLink>
 
-      <Icon icon="close" alt="Close" />
-      <Icon icon="logo" alt="Logo" />
+      <Icon icon="close" />
+      <Icon icon="logo" />
     </div>
   )
 }

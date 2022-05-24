@@ -5,9 +5,10 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
 export const ButtonStyle = styled.button<Props>``
 
-const Button: FC<Props> = ({ children, className, onClick, type }: Props) => {
+const Button: FC<Props> = ({ children, onClick, type, ...rest }: Props) => {
   return (
-    <ButtonStyle className={className} type={type} onClick={onClick}>
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    <ButtonStyle type={type} onClick={onClick} {...rest}>
       {children}
     </ButtonStyle>
   )

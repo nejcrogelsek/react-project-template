@@ -1,17 +1,19 @@
-import { FC, ReactChild } from 'react'
+/* eslint-disable react/jsx-props-no-spreading */
+import { Dispatch, FC, HTMLAttributes, ReactNode, SetStateAction } from 'react'
 import styled from 'styled-components'
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   isOpen: boolean
-  children: ReactChild | ReactChild[]
+  children: ReactNode | ReactNode[]
   title?: string
   big?: boolean
-  toggle: () => void
+  toggle: Dispatch<SetStateAction<boolean>>
+  close?: boolean
 }
 
-interface ModalStyleProps {
+interface ModalStyleProps extends HTMLAttributes<HTMLDivElement> {
   isOpen: boolean
-  toggle: () => void
+  toggle: Dispatch<SetStateAction<boolean>>
 }
 
 export const ModalStyle = styled.div<ModalStyleProps>`
@@ -23,9 +25,9 @@ export const ModalStyle = styled.div<ModalStyleProps>`
   padding: 1rem;
 `
 
-const Modal: FC<Props> = ({ title, isOpen, toggle, children }: Props) => {
+const Modal: FC<Props> = ({ title, isOpen, toggle, children, ...rest }: Props) => {
   return (
-    <ModalStyle isOpen={isOpen} toggle={toggle}>
+    <ModalStyle isOpen={isOpen} toggle={toggle} {...rest}>
       {title && <h3>{title}</h3>}
       {children}
     </ModalStyle>
