@@ -1,17 +1,18 @@
-import { FC, ReactChild } from 'react'
+import { Dispatch, FC, HTMLAttributes, ReactChild, SetStateAction } from 'react'
 import styled from 'styled-components'
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   isOpen: boolean
   children: ReactChild | ReactChild[]
   title?: string
   big?: boolean
-  toggle: () => void
+  toggle: Dispatch<SetStateAction<boolean>>
+  close?: boolean
 }
 
-interface ModalStyleProps {
+interface ModalStyleProps extends HTMLAttributes<HTMLDivElement> {
   isOpen: boolean
-  toggle: () => void
+  toggle: Dispatch<SetStateAction<boolean>>
 }
 
 export const ModalStyle = styled.div<ModalStyleProps>`
@@ -23,9 +24,9 @@ export const ModalStyle = styled.div<ModalStyleProps>`
   padding: 1rem;
 `
 
-const Modal: FC<Props> = ({ title, isOpen, toggle, children }: Props) => {
+const Modal: FC<Props> = ({ title, isOpen, toggle, children, className }: Props) => {
   return (
-    <ModalStyle isOpen={isOpen} toggle={toggle}>
+    <ModalStyle className={className} isOpen={isOpen} toggle={toggle}>
       {title && <h3>{title}</h3>}
       {children}
     </ModalStyle>

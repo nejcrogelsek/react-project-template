@@ -4,17 +4,17 @@ import { IconSvg, IconDefinition } from './Icon.generated'
 export * from './Icon.generated'
 interface Props {
   icon?: IconDefinition
-  alt?: string
   style?: React.CSSProperties
   className?: string
+  onClick?: () => void
 }
-const Icon = (props: Props) => {
-  if (!props.icon) {
+const Icon = ({ className, icon, onClick, style }: Props) => {
+  if (!icon) {
     return null
   }
   return (
-    <div style={props.style} className={cs('Icon', props.className)}>
-      {IconSvg[props.icon]}
+    <div style={style} className={cs('Icon', className)} onClick={onClick}>
+      {IconSvg[icon]}
     </div>
   )
 }
