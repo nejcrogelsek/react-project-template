@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { RouteProps, Routes as Switch, Route } from 'react-router-dom'
+import { ReactLocation, Route } from '@tanstack/react-location'
 
 import PrivateRoute from './PrivateRoute'
 import RestrictedRoute from './RestrictedRoute'
@@ -17,64 +17,40 @@ export enum RouteType {
   PRIVATE,
   RESTRICTED,
 }
-interface AppRoute extends RouteProps {
-  type?: RouteType
-}
-export const AppRoutes: AppRoute[] = [
+
+export const location = new ReactLocation()
+
+export const routes: Route[] = [
   // Restricted Routes
   {
-    type: RouteType.RESTRICTED,
     path: 'login',
-    children: <Login />,
+    element: <Login />,
   },
   {
-    type: RouteType.RESTRICTED,
     path: 'register',
-    children: <Register />,
+    element: <Register />,
   },
   {
-    type: RouteType.RESTRICTED,
     path: 'forgot-password',
-    children: <ForgotPassword />,
+    element: <ForgotPassword />,
   },
   {
-    type: RouteType.RESTRICTED,
     path: 'reset-password',
-    children: <ResetPassword />,
+    element: <ResetPassword />,
   },
   // Private Routes
   {
-    type: RouteType.PRIVATE,
     path: 'my-profile',
-    children: <Profile />,
+    element: <Profile />,
   },
   // Public Routes
   {
-    type: RouteType.PUBLIC,
     path: '/',
-    children: <Home />,
+    element: <Home />,
+  },
+  // 404 Error
+  {
+    path: '*',
+    element: <Page404 />,
   },
 ]
-
-const Routes: FC = () => {
-  return (
-    <Switch>
-      {AppRoutes.map((r) => {
-        const { type } = r
-        if (type === RouteType.PRIVATE) {
-          return <Route key={`${r.path}`} path={`/${r.path}`} element={<PrivateRoute>{r.children}</PrivateRoute>} />
-        }
-        if (type === RouteType.RESTRICTED) {
-          return (
-            <Route key={`${r.path}`} path={`/${r.path}`} element={<RestrictedRoute>{r.children}</RestrictedRoute>} />
-          )
-        }
-
-        return <Route key={`${r.path}`} path={`/${r.path}`} element={r.children} />
-      })}
-      <Route path="*" element={<Page404 />} />
-    </Switch>
-  )
-}
-
-export default Routes
