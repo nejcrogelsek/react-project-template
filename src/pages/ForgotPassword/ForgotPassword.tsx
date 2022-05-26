@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import isRestricted from 'routes/isRestricted'
 
 interface Props {}
 
@@ -10,4 +11,4 @@ const ForgotPassword: FC<Props> = (props: Props) => {
   )
 }
 
-export default ForgotPassword
+export default isRestricted(ForgotPassword)

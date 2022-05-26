@@ -1,4 +1,6 @@
 import { FC } from 'react'
+import isRestricted from 'routes/isRestricted'
+
 import LoginForm from 'components/user/LoginForm/LoginForm'
 
 interface Props {}
@@ -11,4 +13,4 @@ const Login: FC<Props> = (props: Props) => {
   )
 }
 
-export default Login
+export default isRestricted(Login)
