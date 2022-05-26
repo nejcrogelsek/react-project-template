@@ -1,13 +1,11 @@
-import { useNavigate, useLocation, useParams } from 'react-router-dom'
+import { useNavigate, useLocation } from '@tanstack/react-location'
 
 export function useRouter() {
   const navigate = useNavigate()
   const location = useLocation()
-  const params = useParams()
 
   return {
     navigate,
     location,
-    params,
   }
 }
