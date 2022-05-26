@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { Navigate } from '@tanstack/react-location'
 import authStore from 'lib/stores/auth.store'
 
-const isRestricted = (OriginalComponent: any) => {
+const isRestricted = (OriginalComponent: FC) => {
   const EnhancedComponent: FC = () => {
     return authStore.isAuthenticated ? <Navigate to="/" /> : <OriginalComponent />
   }
