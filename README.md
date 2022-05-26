@@ -9,6 +9,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 3. Run: `yarn run start:clean`
 4. Run: `yarn run husky:postinstall` to install husky git hook (automatically formats the code when pushing code to github)
 
+**With react-location instead of react-router-dom:**
+1. Clone project by running:
+`git clone https://github.com/nejcrogelsek/react-project-template.git`
+2. Fetch the react-location branch:
+`git fetch origin feature/react-location`
+3. Checkout into react-location branch:
+`git checkout feature/react-location`
+4. Delete .git file inside project.
+5. Run: `yarn run start:clean`
+6. Run: `yarn run husky:postinstall` to install husky git hook (automatically formats the code when pushing code to github)
+
 ## Available Scripts
 
 In the project directory, you can run:
