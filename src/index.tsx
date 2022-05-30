@@ -1,5 +1,4 @@
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter as Router } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import theme from 'styles/shared/theme'
 import GlobalStyle from 'styles/shared/global'
@@ -12,9 +11,7 @@ const root = createRoot(container)
 root.render(
   <ThemeProvider theme={theme}>
     <GlobalStyle />
-    <Router>
-      <App />
-    </Router>
+    <App />
   </ThemeProvider>,
 )
 

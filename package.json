@@ -19,12 +19,14 @@
     "code:check": "prettier --check \"src/**/*.{ts,tsx,js,css,scss,html}\"",
     "code:format": "prettier --write \"src/**/*.{ts,tsx,js,css,scss,html}\"",
     "code:format:specific-file": "prettier --write",
-		"lint": "eslint .",
-		"lint:fix": "eslint --fix ."
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
   },
   "dependencies": {
     "@hookform/resolvers": "^2.8.8",
     "@material-ui/core": "^4.12.4",
+    "@tanstack/react-location": "^3.7.4",
+    "@tanstack/react-location-devtools": "^3.4.4",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@testing-library/react-hooks": "^8.0.0",
@@ -42,7 +44,6 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-hook-form": "^7.29.0",
-    "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.0",
     "styled-components": "^5.3.5",
     "typescript": "^4.6.3",
@@ -51,7 +52,6 @@
   },
   "devDependencies": {
     "@types/classnames": "^2.3.1",
-    "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.25",
     "@types/yup": "^0.29.13",
     "@typescript-eslint/eslint-plugin": "^5.18.0",

@@ -4,5 +4,5 @@ export const useScrollToTop = () => {
   const router = useRouter()
   useEffect(() => {
     window.scrollTo(0, 0)
-  }, [router.location.pathname])
+  }, [router.location.current.pathname])
 }

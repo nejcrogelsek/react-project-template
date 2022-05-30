@@ -62,17 +62,17 @@ const mergeValues = (
 }
 export function useQueryParameters(): QueryParameters {
   const router = useRouter()
-  const values = qs.parse(router.location.search, qsOptions)
-  const hash = router.location.hash.length > 1 ? router.location.hash : undefined
+  const values = qs.parse(router.location.current.search.toString(), qsOptions)
+  const hash = router.location.current.hash.length > 1 ? router.location.current.hash : undefined
   const getUrlWithQueryParams = (fields: string | { [field: string]: FilterValue }, value?: FilterValue) => {
     const newValues = mergeValues(values, fields, value)
     const queryString = qs.stringify(newValues, qsOptions)
-    const url = `${router.location.pathname}?${queryString}${hash || ''}`
+    const url = `${router.location.current.pathname}?${queryString}${hash || ''}`
     return url
   }
   const set: QueryParameters['set'] = (fields: string | { [field: string]: FilterValue }, value?: FilterValue) => {
     const url = getUrlWithQueryParams(fields, value)
-    router.navigate(url, { replace: true })
+    router.navigate({ to: url, replace: true })
   }
   function get(name: string): string | undefined {
     const val = values[name]
@@ -102,11 +102,11 @@ export function useQueryParameters(): QueryParameters {
   }
   function setHash(value: string | undefined) {
     const suffix = value ? `#${value}` : ''
-    const url = `${router.location.pathname}${router.location.search}${suffix}`
-    router.navigate(url, { replace: true })
+    const url = `${router.location.current.pathname}${router.location.current.search}${suffix}`
+    router.navigate({ to: url, replace: true })
   }
   return {
-    path: router.location.pathname,
+    path: router.location.current.pathname,
     hash,
     getNumber,
     get,

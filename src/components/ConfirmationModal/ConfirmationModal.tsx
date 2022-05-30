@@ -20,7 +20,7 @@ const ConfirmationModal: FC<Props> = ({ confirmationData }: Props) => {
 
   useEffect(() => {
     cancel()
-  }, [router.location.pathname])
+  }, [router.location.current.pathname])
 
   const confirm = () => {
     if (confirmationData.onConfirm) {

@@ -1,4 +1,6 @@
 import { FC } from 'react'
+import isRestricted from 'routes/isRestricted'
+
 import RegisterForm from 'components/user/RegisterForm/RegisterForm'
 
 interface Props {}
@@ -11,4 +13,4 @@ const Register: FC<Props> = (props: Props) => {
   )
 }
 
-export default Register
+export default isRestricted(Register)
