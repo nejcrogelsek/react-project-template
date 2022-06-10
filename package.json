@@ -24,7 +24,6 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^2.8.8",
-    "@material-ui/core": "^4.12.4",
     "@tanstack/react-location": "^3.7.4",
     "@tanstack/react-location-devtools": "^3.4.4",
     "@testing-library/jest-dom": "^5.14.1",
