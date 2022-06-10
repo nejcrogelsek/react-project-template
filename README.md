@@ -20,6 +20,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 5. Run: `yarn run start:clean`
 6. Initialize git & run: `yarn run husky:postinstall` to install husky git hook (automatically formats the code when pushing code to github)
 
+**With tailwindCSS & react-location:**
+1. Clone project by running:
+`git clone https://github.com/nejcrogelsek/react-project-template.git`
+2. Fetch the tailwind react-location branch:
+`git fetch origin feature/tailwind-react-location`
+3. Checkout into react-location branch:
+`git checkout feature/tailwind-react-location`
+4. Delete .git file inside project.
+5. Run: `yarn run start:clean`
+6. Initialize git & run: `yarn run husky:postinstall` to install husky git hook (automatically formats the code when pushing code to github)
+
 ## Available Scripts
 
 In the project directory, you can run:
