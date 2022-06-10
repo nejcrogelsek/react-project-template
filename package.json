@@ -19,12 +19,11 @@
     "code:check": "prettier --check \"src/**/*.{ts,tsx,js,css,scss,html}\"",
     "code:format": "prettier --write \"src/**/*.{ts,tsx,js,css,scss,html}\"",
     "code:format:specific-file": "prettier --write",
-		"lint": "eslint .",
-		"lint:fix": "eslint --fix ."
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
   },
   "dependencies": {
     "@hookform/resolvers": "^2.8.8",
-    "@material-ui/core": "^4.12.4",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@testing-library/react-hooks": "^8.0.0",
