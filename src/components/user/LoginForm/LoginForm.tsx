@@ -2,7 +2,6 @@ import { FC } from 'react'
 import * as API from 'api/Api'
 import { useLoginForm } from 'lib/hooks/react-hook-form/useLoginForm'
 
-import { Form, FormGroup, Label, FormFeedback } from 'styles/shared'
 import Button from 'components/shared/Button/Button'
 import Input from 'components/shared/Input/Input'
 
@@ -26,21 +25,21 @@ const LoginForm: FC = () => {
 
   return (
     <div className="login-form">
-      <Form name="form" onSubmit={onSubmit}>
-        <FormGroup>
-          <Label htmlFor="email">Email</Label>
+      <form className="form" name="form" onSubmit={onSubmit}>
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
           <Input type="email" id="email" placeholder="email" register={register} />
-          {errors.email && <FormFeedback>{errors.email.message}</FormFeedback>}
-        </FormGroup>
-        <FormGroup>
-          <Label htmlFor="password">Password</Label>
+          {errors.email && <div className="error-message">{errors.email.message}</div>}
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">Password</label>
           <Input type="password" id="password" placeholder="password" register={register} />
-          {errors.password && <FormFeedback>{errors.password.message}</FormFeedback>}
-        </FormGroup>
+          {errors.password && <div className="error-message">{errors.password.message}</div>}
+        </div>
         <Button className="btn-secondary" type="submit">
           Login
         </Button>
-      </Form>
+      </form>
     </div>
   )
 }

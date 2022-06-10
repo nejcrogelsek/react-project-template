@@ -2,7 +2,6 @@ import { FC } from 'react'
 import * as API from 'api/Api'
 import { useRegisterForm } from 'lib/hooks/react-hook-form/useRegisterForm'
 
-import { Row, Col, Form, FormGroup, Label, FormFeedback } from 'styles/shared'
 import Button from 'components/shared/Button/Button'
 import Input from 'components/shared/Input/Input'
 
@@ -29,50 +28,50 @@ const RegisterForm: FC = () => {
 
   return (
     <div className="register-form">
-      <Form onSubmit={onSubmit}>
-        <Row direction="column">
-          <Col size={1}>
-            <FormGroup>
-              <Label htmlFor="first_name">First name</Label>
+      <form className="form" onSubmit={onSubmit}>
+        <div className="flex flex-col">
+          <div className="flex-1">
+            <div className="form-group">
+              <label htmlFor="first_name">First name</label>
               <Input type="text" id="first_name" placeholder="first_name" register={register} />
-              {errors.first_name && <FormFeedback>{errors.first_name.message}</FormFeedback>}
-            </FormGroup>
-          </Col>
-          <Col size={1}>
-            <FormGroup>
-              <Label htmlFor="last_name">Last name</Label>
+              {errors.first_name && <div className="error-message">{errors.first_name.message}</div>}
+            </div>
+          </div>
+          <div className="flex-1">
+            <div className="form-group">
+              <label htmlFor="last_name">Last name</label>
               <Input type="text" id="last_name" placeholder="last_name" register={register} />
-              {errors.last_name && <FormFeedback>{errors.last_name.message}</FormFeedback>}
-            </FormGroup>
-          </Col>
-        </Row>
-        <Col size={1}>
-          <FormGroup>
-            <Label htmlFor="date_of_birth">Date of birth</Label>
+              {errors.last_name && <div className="error-message">{errors.last_name.message}</div>}
+            </div>
+          </div>
+        </div>
+        <div className="flex-1">
+          <div className="form-group">
+            <label htmlFor="date_of_birth">Date of birth</label>
             <Input type="date" id="date_of_birth" placeholder="date_of_birth" register={register} />
-            {errors.date_of_birth && <FormFeedback>{errors.date_of_birth.message}</FormFeedback>}
-          </FormGroup>
-        </Col>
-        <Col size={1}>
-          <FormGroup>
-            <Label htmlFor="email">email</Label>
+            {errors.date_of_birth && <div className="error-message">{errors.date_of_birth.message}</div>}
+          </div>
+        </div>
+        <div className="flex-1">
+          <div className="form-group">
+            <label htmlFor="email">email</label>
             <Input type="email" id="email" placeholder="email" register={register} />
-            {errors.email && <FormFeedback>{errors.email.message}</FormFeedback>}
-          </FormGroup>
-        </Col>
-        <Col size={1}>
-          <FormGroup>
-            <Label htmlFor="password">Password</Label>
+            {errors.email && <div className="error-message">{errors.email.message}</div>}
+          </div>
+        </div>
+        <div className="flex-1">
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
             <Input type="password" id="password" placeholder="password" register={register} />
-            {errors.password && <FormFeedback>{errors.password.message}</FormFeedback>}
-          </FormGroup>
-        </Col>
-        <Col size={1}>
+            {errors.password && <div className="error-message">{errors.password.message}</div>}
+          </div>
+        </div>
+        <div className="flex-1">
           <Button className="btn-secondary" type="submit">
             Create Account
           </Button>
-        </Col>
-      </Form>
+        </div>
+      </form>
     </div>
   )
 }

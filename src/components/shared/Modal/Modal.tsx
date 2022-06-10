@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { Dispatch, FC, HTMLAttributes, ReactNode, SetStateAction } from 'react'
-import styled from 'styled-components'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   isOpen: boolean
@@ -11,26 +10,12 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   close?: boolean
 }
 
-interface ModalStyleProps extends HTMLAttributes<HTMLDivElement> {
-  isOpen: boolean
-  toggle: Dispatch<SetStateAction<boolean>>
-}
-
-export const ModalStyle = styled.div<ModalStyleProps>`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 1rem;
-`
-
 const Modal: FC<Props> = ({ title, isOpen, toggle, children, ...rest }: Props) => {
   return (
-    <ModalStyle isOpen={isOpen} toggle={toggle} {...rest}>
+    <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4" {...rest}>
       {title && <h3>{title}</h3>}
       {children}
-    </ModalStyle>
+    </div>
   )
 }
 
