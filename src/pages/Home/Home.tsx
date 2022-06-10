@@ -5,7 +5,7 @@ import Icon from 'components/shared/Icon/Icon'
 const Home: FC = () => {
   return (
     <div className="home">
-      <h1 className="text-red">Home component</h1>
+      <h1>Home component</h1>
       <Link to="/login"> Go to Login</Link>
       <Icon icon="close" />
       <Icon icon="logo" />
