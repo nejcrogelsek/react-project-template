@@ -10,7 +10,6 @@
     "eject": "react-scripts eject",
     "start:clean": "rm -rf node_modules/ && rm -rf yarn.lock && rm -rf yarn-error.log && yarn && yarn start",
     "generate:icons": "node scripts/generate-icons.js",
-    "generate:images": "node scripts/generate-images.js",
     "generate:component": "npx generate-react-cli component",
     "generate:page": "npx generate-react-cli component --type=page",
     "update:check": "yarn outdated",
